@@ -660,7 +660,7 @@
                 <div class="rule-card">
                     <h3><i class="fas fa-ban"></i> Запрещено</h3>
                     <ul>
-                        <li>Курение на территории</li>
+                        <li>Курение на территории (кроме мест за 15м от забора)</li>
                         <li>Нецензурная лексика</li>
                         <li>Пронос оружия и алкоголя</li>
                         <li>Вход в аудиторию без разрешения преподавателя</li>
@@ -669,8 +669,8 @@
                 <div class="rule-card">
                     <h3><i class="fas fa-utensils"></i> Бытовые вопросы</h3>
                     <ul>
-                        <li>Гардероб справа от охраны, одежду вешает персонал</li>
-                        <li>Принимаются только куртки с петлями</li>
+                        <li>Гардероб справа от охраны, вешает персонал</li>
+                        <li>Принимают только куртки с петлями</li>
                         <li>2 буфета на 1 этаже (обеды и снеки)</li>
                     </ul>
                 </div>
@@ -731,17 +731,17 @@
             <h2 class="section-title">Расписание звонков</h2>
             <div class="schedule-table-wrapper">
                 <table class="schedule-table">
-                    <thead><tr><th>Пара</th><th>Время</th><th>Перемена</th>\)</thead>
+                    <thead><tr><th>Пара</th><th>Время</th><th>Перемена</th></tr></thead>
                     <tbody>
-                        <tr><td>1 пара</td><td>08:30 – 10:00</td><td>10 минут</td></tr>
-                        <tr><td>2 пара</td><td>10:10 – 11:40</td><td>20 минут</td></tr>
-                        <tr><td>3 пара</td><td>12:00 – 13:30</td><td>20 минут</td></tr>
-                        <tr><td>4 пара</td><td>13:50 – 15:20</td><td>10 минут</td></tr>
-                        <tr><td>5 пара</td><td>15:30 – 17:00</td><td>5 минут</td></tr>
-                        <tr><td>6 пара</td><td>17:05 – 18:35</td><td>5 минут</td></tr>
-                        <tr><td>7 пара</td><td>18:40 – 20:10</td><td>—</td></tr>
+                        <tr><td>1 пара</td><td>08:30 – 10:00</td><td>10 минут</td> </tr>
+                         <tr><td>2 пара</td><td>10:10 – 11:40</td><td>20 минут</td> </tr>
+                         <tr><td>3 пара</td><td>12:00 – 13:30</td><td>20 минут</td> </tr>
+                         <tr><td>4 пара</td><td>13:50 – 15:20</td><td>10 минут</td> </tr>
+                         <tr><td>5 пара</td><td>15:30 – 17:00</td><td>5 минут</td> </tr>
+                         <tr><td>6 пара</td><td>17:05 – 18:35</td><td>5 минут</td> </tr>
+                         <tr><td>7 пара</td><td>18:40 – 20:10</td><td>—</td> </tr>
                     </tbody>
-                </table>
+                 </table>
             </div>
         </div>
     </section>
@@ -832,7 +832,7 @@
             qa: [
                 { q: "Как заказать справку в техникуме?", a: "Стандартные справки — через studinfo.mpt.ru. Характеристика — student.mpt.ru → «Заказать характеристику». Анкета для военкомата — подойти к педагогу-организатору (каб. 229, 230). Готовые справки получать в каб. 229." },
                 { q: "Как получить медицинскую справку?", a: "Медицинские справки заказываются в медицинском кабинете (каб. 131)." },
-                { q: "Какие справки заказываются в РЭУ?", a: "Справки с денежными суммами (о стипендии, субсидия), копия договора — через buh@rea.ru (используйте Яндекс или Mail.ru). Выдача: корп. 9, каб. 3.01, пн-пт 8:30-17:00, перерыв 12:30-13:30." },
+                { q: "Как заказать справку в РЭУ?", a: "Справки с денежными суммами (о стипендии, субсидия), копия договора — через buh@rea.ru (используйте Яндекс или Mail.ru). Выдача: корп. 9, каб. 3.01, пн-пт 8:30-17:00, перерыв 12:30-13:30." },
                 { q: "Где получить копию аттестата?", a: "В отделе по работе со студентами: Стремянный пер., 36, корп. 3, каб. 100. Тел: 8-499-237-81-04." }
             ]
         }
@@ -843,62 +843,27 @@
     const answersContent = document.getElementById('answersContent');
     const backBtn = document.getElementById('backToMenuBtn');
 
-function showAnswers(sectionId) {
-    const data = sectionsData[sectionId];
-    if (!data) return;
+    function showAnswers(sectionId) {
+        const data = sectionsData[sectionId];
+        if (!data) return;
 
-    let qaHtml = `<h3>${data.title}</h3>`;
-    
-    data.qa.forEach(item => {
-        // Выбираем иконку в зависимости от раздела
-        let iconClass = "fas fa-question-circle";
-        if (sectionId === "contacts") {
-            iconClass = "fas fa-user-circle";
-        }
+        let qaHtml = `<h3>${data.title}</h3>`;
         
-        qaHtml += `
-            <div class="qa-block">
-                <div class="qa-question">
-                    <i class="${iconClass}"></i> ${item.q}
-                </div>
-                <div class="qa-answer">${item.a}</div>
-            </div>
-        `;
-        
-        // Добавляем схему для вопроса "Что такое числитель/знаменатель?"
-        if (item.q === "Что такое числитель/знаменатель?") {
+        data.qa.forEach(item => {
+            // Выбираем иконку в зависимости от раздела
+            let iconClass = "fas fa-question-circle";
+            if (sectionId === "contacts") {
+                iconClass = "fas fa-user-circle";
+            }
+            
             qaHtml += `
-                <div class="qa-block" style="background: #f8fafc; border-radius: 20px; margin-top: 8px;">
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px;">
-                        <div style="text-align: center;">
-                            <div style="background: #f97316; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЧИСЛИТЕЛЬ</div>
-                        </div>
-                        <div style="font-size: 2rem; font-weight: bold; color: #64748b;">/</div>
-                        <div style="text-align: center;">
-                            <div style="background: #3b82f6; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЗНАМЕНАТЕЛЬ</div>
-                        </div>
+                <div class="qa-block">
+                    <div class="qa-question">
+                        <i class="${iconClass}"></i> ${item.q}
                     </div>
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 20px 20px 20px;">
-                        <div style="text-align: center;">
-                            <div style="background: #f97316; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Химия</div>
-                        </div>
-                        <div style="font-size: 1.5rem; font-weight: bold; color: #64748b;">/</div>
-                        <div style="text-align: center;">
-                            <div style="background: #3b82f6; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Физика</div>
-                        </div>
-                    </div>
-                    <p style="text-align: center; font-size: 0.85rem; color: #475569; padding-bottom: 16px;">В числитель — одни пары, в знаменатель — другие</p>
+                    <div class="qa-answer">${item.a}</div>
                 </div>
             `;
-        }
-    });
-    
-    answersContent.innerHTML = qaHtml;
-    
-    menuGrid.style.display = 'none';
-    answersSection.classList.add('active');
-    document.getElementById('interactive').scrollIntoView({ behavior: 'smooth' });
-}
             
             // Добавляем схему для вопроса "Что такое числитель/знаменатель?"
             if (item.q === "Что такое числитель/знаменатель?") {
