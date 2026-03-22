@@ -144,8 +144,8 @@
             backdrop-filter: blur(10px);
             border-radius: 28px;
             padding: 40px 28px;
-            flex: 1 1 220px;
-            max-width: 280px;
+            flex: 1 1 200px;
+            max-width: 260px;
             text-align: center;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -161,12 +161,12 @@
         }
 
         .menu-card i {
-            font-size: 3rem;
+            font-size: 2.8rem;
             background: linear-gradient(135deg, #4f46e5, #818cf8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             transition: transform 0.3s;
         }
 
@@ -175,14 +175,14 @@
         }
 
         .menu-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
             font-weight: 600;
         }
 
         .menu-card p {
             color: #64748b;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .answers-section {
@@ -259,9 +259,64 @@
             line-height: 1.6;
         }
 
+        .rules-block {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .rules-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .rule-card {
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 28px;
+            flex: 1 1 300px;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .rule-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rule-card h3 i {
+            color: #4f46e5;
+            font-size: 1.6rem;
+        }
+
+        .rule-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .rule-card li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: #334155;
+        }
+
+        .rule-card li::before {
+            content: "•";
+            color: #4f46e5;
+            font-weight: bold;
+            position: absolute;
+            left: 8px;
+        }
+
         .features {
             padding: 60px 0 80px;
-            background: white;
+            background: #f8fafc;
         }
 
         .cards {
@@ -323,39 +378,6 @@
 
         .card p {
             color: #475569;
-        }
-
-        .contacts-full {
-            padding: 60px 0;
-            background: #f8fafc;
-        }
-
-        .contacts-table-wrapper {
-            overflow-x: auto;
-            border-radius: 24px;
-            background: white;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-        }
-
-        .contacts-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .contacts-table th, .contacts-table td {
-            padding: 16px 20px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .contacts-table th {
-            background: #f1f5f9;
-            font-weight: 600;
-            color: #0f172a;
-        }
-
-        .contacts-table tr:hover {
-            background: #f8fafc;
         }
 
         .maps {
@@ -537,15 +559,18 @@
             .section-title {
                 font-size: 1.6rem;
             }
-            .contacts-table th, .contacts-table td {
-                padding: 12px;
-                font-size: 0.85rem;
-            }
             .menu-card {
-                padding: 28px 20px;
+                padding: 24px 16px;
+                max-width: 160px;
+            }
+            .menu-card h3 {
+                font-size: 1.1rem;
             }
             .answers-section {
                 padding: 20px;
+            }
+            .rule-card {
+                flex: 1 1 100%;
             }
         }
     </style>
@@ -561,8 +586,8 @@
             <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#interactive">Вопросы</a></li>
+                <li><a href="#rules">Правила</a></li>
                 <li><a href="#features">Преимущества</a></li>
-                <li><a href="#contacts-full">Контакты</a></li>
                 <li><a href="#maps">Схемы</a></li>
                 <li><a href="#schedule">Расписание звонков</a></li>
                 <li><a href="#survey">Опрос</a></li>
@@ -579,7 +604,7 @@
         </div>
     </section>
 
-    <!-- ИНТЕРАКТИВНОЕ МЕНЮ -->
+    <!-- ИНТЕРАКТИВНОЕ МЕНЮ (6 разделов) -->
     <section id="interactive" class="interactive-menu">
         <div class="container">
             <h2 class="section-title">Выберите интересующий раздел</h2>
@@ -605,11 +630,55 @@
                     <h3>Контакты</h3>
                     <p>Администрация техникума</p>
                 </div>
+                <div class="menu-card" data-section="rules">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Правила</h3>
+                    <p>Внутренний распорядок</p>
+                </div>
+                <div class="menu-card" data-section="certificates">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Заказ справок</h3>
+                    <p>Где и как получить</p>
+                </div>
             </div>
 
             <div id="answersSection" class="answers-section">
                 <button id="backToMenuBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Назад к меню</button>
                 <div id="answersContent" class="answers-content"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРАВИЛА ВНУТРЕННЕГО РАСПОРЯДКА (отдельный блок) -->
+    <section id="rules" class="rules-block">
+        <div class="container">
+            <h2 class="section-title">Правила внутреннего распорядка</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3><i class="fas fa-tshirt"></i> Внешний вид</h3>
+                    <ul>
+                        <li>Запрещена рваная, грязная одежда</li>
+                        <li>Запрещены короткие юбки, шорты, декольте</li>
+                        <li>Запрещены тапочки, шлёпанцы, кроксы</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <h3><i class="fas fa-ban"></i> Запрещено</h3>
+                    <ul>
+                        <li>Курение на территории (кроме мест за 15м от забора)</li>
+                        <li>Нецензурная лексика</li>
+                        <li>Пронос оружия и алкоголя</li>
+                        <li>Вход в аудиторию без разрешения преподавателя</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <h3><i class="fas fa-utensils"></i> Бытовые вопросы</h3>
+                    <ul>
+                        <li>Гардероб справа от охраны, вешает персонал</li>
+                        <li>Принимают только куртки с петлями</li>
+                        <li>2 буфета на 1 этаже (обеды и снеки)</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -637,27 +706,6 @@
             </div>
         </div>
     </section>
-
-<!-- Контакты администрации -->
-<section id="contacts-full" class="contacts-full">
-    <div class="container">
-        <h2 class="section-title">Контакты администрации</h2>
-        <div class="contacts-table-wrapper">
-            <table class="contacts-table">
-                <thead>
-                    <tr><th>Должность</th><th>ФИО</th><th>Контактная информация</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Заведующая отделением</td><td>Ермачкова Ирина Юрьевна</td><td>Тел: 8 (495) 800-12-00 (доб. 1456), 8 (926) 900-76-05<br>E-mail: Ermachkova.IY@rea.ru</td></tr>
-                    <tr><td>Педагог-организатор</td><td>Кирюхина Мария Николаевна</td><td>Каб. 229-230 (Нежинская, 7)<br>Тел: 8 (925) 800-10-97, доб. 1498<br>E-mail: Kiryuhina.MN@rea.ru</td></tr>
-                    <tr><td>Педагог-организатор</td><td>Стасевич Константин Владимирович</td><td>Каб. 229-230 (Нежинская, 7)<br>Тел: 8 (925) 628-06-40, доб. 2552<br>E-mail: k.v.stasevich@mpt.ru</td></tr>
-                    <tr><td>Педагог-организатор</td><td>Михайлова Яна Витальевна</td><td>Тел: 8-985-816-23-21, 8-495-800-12-00 доб. 2552<br>E-mail: ya.v.mihailova@mpt.ru</td></tr>
-                    <tr><td>Педагог-организатор</td><td>Шведова Наталья Алексеевна</td><td>Каб. 229 (Нежинская, 7)<br>Тел: 8 (901) 430-45-97, доб. 1498<br>E-mail: n.a.shvedova@mpt.ru</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
 
     <!-- Схемы этажей (3 этажа) -->
     <section id="maps" class="maps">
@@ -688,7 +736,7 @@
             <h2 class="section-title">Расписание звонков</h2>
             <div class="schedule-table-wrapper">
                 <table class="schedule-table">
-                    <thead><tr><th>Пара</th><th>Время</th><th>Перемена</th></tr></thead>
+                    <thead><tr><th>Пара</th><th>Время</th><th>Перемена</th>\)</thead>
                     <tbody>
                         <tr><td>1 пара</td><td>08:30 – 10:00</td><td>10 минут</td></tr>
                         <tr><td>2 пара</td><td>10:10 – 11:40</td><td>20 минут</td></tr>
@@ -717,8 +765,8 @@
     <div class="container">
         <div class="footer-links">
             <a href="#interactive">Вопросы</a>
+            <a href="#rules">Правила</a>
             <a href="#features">Преимущества</a>
-            <a href="#contacts-full">Контакты</a>
             <a href="#maps">Схемы</a>
             <a href="#schedule">Расписание</a>
             <a href="#survey">Опрос</a>
@@ -745,7 +793,7 @@
         });
     });
 
-    // Данные для интерактивного меню
+    // Данные для интерактивного меню (6 разделов)
     const sectionsData = {
         schedule: {
             title: "Расписание",
@@ -783,6 +831,24 @@
                 { q: "Михайлова Яна Витальевна", a: "Педагог-организатор. Тел: 8-985-816-23-21, 8-495-800-12-00 доб. 2552. E-mail: ya.v.mihailova@mpt.ru" },
                 { q: "Шведова Наталья Алексеевна", a: "Педагог-организатор. Каб. 229 (Нежинская, 7). Тел: 8 (901) 430-45-97, доб. 1498. E-mail: n.a.shvedova@mpt.ru" }
             ]
+        },
+        rules: {
+            title: "Правила внутреннего распорядка",
+            qa: [
+                { q: "Какие требования к одежде?", a: "Запрещена рваная, грязная одежда, короткие юбки, шорты, декольте, тапочки, шлёпанцы, кроксы." },
+                { q: "Что запрещено в техникуме?", a: "Курение (только за 15м от забора), нецензурная лексика, пронос оружия и алкоголя, вход в аудиторию без разрешения преподавателя." },
+                { q: "Где гардероб и как он работает?", a: "Гардероб справа от стойки охраны, нужно спуститься. Вешает персонал. Принимают только куртки с петлями." },
+                { q: "Где можно поесть?", a: "На 1 этаже работают 2 буфета с полноценными обедами и снеками." }
+            ]
+        },
+        certificates: {
+            title: "Заказ справок",
+            qa: [
+                { q: "Как заказать справку в техникуме?", a: "Стандартные справки — через studinfo.mpt.ru. Характеристика — student.mpt.ru → «Заказать характеристику». Анкета для военкомата — подойти к педагогу-организатору (каб. 229, 230). Готовые справки получать в каб. 229." },
+                { q: "Как получить медицинскую справку?", a: "Медицинские справки заказываются в медицинском кабинете (каб. 131)." },
+                { q: "Как заказать справку в РЭУ?", a: "Справки с денежными суммами (о стипендии, субсидия), копия договора — через buh@rea.ru (используйте Яндекс или Mail.ru). Выдача: корп. 9, каб. 3.01, пн-пт 8:30-17:00, перерыв 12:30-13:30." },
+                { q: "Где получить копию аттестата?", a: "В отделе по работе со студентами: Стремянный пер., 36, корп. 3, каб. 100. Тел: 8-499-237-81-04." }
+            ]
         }
     };
 
@@ -807,32 +873,32 @@
                 </div>
             `;
             
-// Добавляем схему для вопроса "Что такое числитель/знаменатель?"
-if (item.q === "Что такое числитель/знаменатель?") {
-    qaHtml += `
-        <div class="qa-block" style="background: #f8fafc; border-radius: 20px; margin-top: 8px;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px;">
-                <div style="text-align: center;">
-                    <div style="background: #f97316; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЧИСЛИТЕЛЬ</div>
-                </div>
-                <div style="font-size: 2rem; font-weight: bold; color: #64748b;">/</div>
-                <div style="text-align: center;">
-                    <div style="background: #3b82f6; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЗНАМЕНАТЕЛЬ</div>
-                </div>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 20px 20px 20px;">
-                <div style="text-align: center;">
-                    <div style="background: #f97316; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Химия</div>
-                </div>
-                <div style="font-size: 1.5rem; font-weight: bold; color: #64748b;">/</div>
-                <div style="text-align: center;">
-                    <div style="background: #3b82f6; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Физика</div>
-                </div>
-            </div>
-            <p style="text-align: center; font-size: 0.85rem; color: #475569; padding-bottom: 16px;">В числитель — одни пары, в знаменатель — другие</p>
-        </div>
-    `;
-}
+            // Добавляем схему для вопроса "Что такое числитель/знаменатель?"
+            if (item.q === "Что такое числитель/знаменатель?") {
+                qaHtml += `
+                    <div class="qa-block" style="background: #f8fafc; border-radius: 20px; margin-top: 8px;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px;">
+                            <div style="text-align: center;">
+                                <div style="background: #f97316; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЧИСЛИТЕЛЬ</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #64748b;">/</div>
+                            <div style="text-align: center;">
+                                <div style="background: #3b82f6; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЗНАМЕНАТЕЛЬ</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 20px 20px 20px;">
+                            <div style="text-align: center;">
+                                <div style="background: #f97316; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Химия</div>
+                            </div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #64748b;">/</div>
+                            <div style="text-align: center;">
+                                <div style="background: #3b82f6; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Физика</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; font-size: 0.85rem; color: #475569; padding-bottom: 16px;">В числитель — одни пары, в знаменатель — другие</p>
+                    </div>
+                `;
+            }
         });
         
         answersContent.innerHTML = qaHtml;
