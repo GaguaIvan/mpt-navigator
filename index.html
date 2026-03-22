@@ -945,22 +945,31 @@ scrollBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Плавная прокрутка для всех ссылок в меню (верхнее меню и футер)
-document.querySelectorAll('.nav-links a, .footer-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            e.preventDefault();
-            const targetId = href;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+// Плавная прокрутка для всех ссылок (включая мобильное меню)
+function smoothScrollHandler(e) {
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // Закрываем мобильное меню после клика
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
             }
         }
-    });
+    }
+}
+
+// Применяем ко всем ссылкам в навигации (и верхнее меню, и мобильное)
+document.querySelectorAll('.nav-links a, .footer-links a').forEach(anchor => {
+    anchor.addEventListener('click', smoothScrollHandler);
+});
 });</script>
 </body>
 </html>
