@@ -612,40 +612,40 @@
         </div>
     </section>
 
-    <!-- ИНТЕРАКТИВНОЕ МЕНЮ (сначала вопросы) -->
-    <section id="interactive" class="interactive-menu">
-        <div class="container">
-            <h2 class="section-title">Выберите интересующий раздел</h2>
-            
-            <div id="menuGrid" class="menu-grid">
-                <div class="menu-card" data-section="schedule">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Расписание</h3>
-                    <p>Пары, недели, аудиторник</p>
-                </div>
-                <div class="menu-card" data-section="docs">
-                    <i class="fas fa-id-card"></i>
-                    <h3>Документы</h3>
-                    <p>Что брать, потеря пропуска</p>
-                </div>
-                <div class="menu-card" data-section="study">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Обучение</h3>
-                    <p>Сессия, дифзачёты, экзамены</p>
-                </div>
-                <div class="menu-card" data-section="contacts">
-                    <i class="fas fa-address-card"></i>
-                    <h3>Контакты</h3>
-                    <p>Администрация техникума</p>
-                </div>
+<!-- ИНТЕРАКТИВНОЕ МЕНЮ (4 раздела) -->
+<section id="interactive" class="interactive-menu">
+    <div class="container">
+        <h2 class="section-title">Выберите интересующий раздел</h2>
+        
+        <div id="menuGrid" class="menu-grid">
+            <div class="menu-card" data-section="schedule">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Расписание</h3>
+                <p>Пары, недели, аудиторник</p>
             </div>
-
-            <div id="answersSection" class="answers-section">
-                <button id="backToMenuBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Назад к меню</button>
-                <div id="answersContent" class="answers-content"></div>
+            <div class="menu-card" data-section="docs">
+                <i class="fas fa-id-card"></i>
+                <h3>Документы</h3>
+                <p>Что брать, потеря пропуска</p>
+            </div>
+            <div class="menu-card" data-section="study">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Обучение</h3>
+                <p>Сессия, дифференцированные зачёты</p>
+            </div>
+            <div class="menu-card" data-section="contacts">
+                <i class="fas fa-address-card"></i>
+                <h3>Контакты</h3>
+                <p>Администрация техникума</p>
             </div>
         </div>
-    </section>
+
+        <div id="answersSection" class="answers-section">
+            <button id="backToMenuBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Назад к меню</button>
+            <div id="answersContent" class="answers-content"></div>
+        </div>
+    </div>
+</section>
 
     <!-- Преимущества (после вопросов) -->
     <section id="features" class="features">
@@ -778,43 +778,46 @@
         });
     });
 
-    // Данные для интерактивного меню
-    const sectionsData = {
-        schedule: {
-            title: "Расписание",
-            qa: [
-                { q: "Где смотреть расписание?", a: "На официальном сайте МПТ или в приложении MPT Informer." },
-                { q: "Что такое числитель/знаменатель?", a: "Недели чередуются. На числителе — одни пары, на знаменателе — другие. Смотри, какая неделя, чтобы не перепутать." },
-                { q: "Где проходят пары?", a: "1 курс — только Нежинская. 2–4 курс — Нежинская + Нахимовский." },
-                { q: "Что такое аудиторник?", a: "Для обозначения расписания на день существует аудиторник. Он находится на стойке охраны справа." }
-            ]
-        },
-        docs: {
-            title: "Документы",
-            qa: [
-                { q: "Что нужно брать с собой?", a: "1. Пропуск. 2. Студенческий билет. 3. Паспорт (желательно)." },
-                { q: "Что делать, если потерял студенческий/пропуск?", a: "При утере студенческого — заявление в полицию, при порче — объяснительная. Пропуск восстанавливают в РЭУ. До получения нового носи с собой паспорт и студенческий." }
-            ]
-        },
-        study: {
-            title: "Обучение",
-            qa: [
-                { q: "Что такое сессия?", a: "Сессия — это период сдачи экзаменов в конце семестра. Она проходит в июне и включает 3 экзамена и несколько дифференцированных зачётов." },
-                { q: "Какие экзамены сдают на сессии?", a: "Обязательные экзамены — русский язык и математика. Остальные предметы идут как дифференцированные зачёты." },
-                { q: "Что такое дифзачёт?", a: "Это форма проверки знаний, где вместо оценки ставят «зачёт» или «незачёт». Результаты влияют на допуск к сессии и перевод на следующий курс." }
-            ]
-        },
-        contacts: {
-            title: "Контакты администрации",
-            qa: [
-                { q: "Кирюхина Мария Николаевна", a: "Педагог-организатор. Каб. 229-230 (Нежинская, 7). Тел: 8 (925) 800-10-97, доб. 1498. E-mail: Kiryuhina.MN@rea.ru" },
-                { q: "Стасевич Константин Владимирович", a: "Педагог-организатор. Каб. 229-230 (Нежинская, 7). Тел: 8 (925) 628-06-40, доб. 2552. E-mail: k.v.stasevich@mpt.ru" },
-                { q: "Ермачкова Ирина Юрьевна", a: "Заведующая отделением. Тел: 8 (495) 800-12-00 (доб. 1456), 8 (926) 900-76-05. E-mail: Ermachkova.IY@rea.ru" },
-                { q: "Михайлова Яна Витальевна", a: "Педагог-организатор. Тел: 8-985-816-23-21, 8-495-800-12-00 доб. 2552. E-mail: ya.v.mihailova@mpt.ru" },
-                { q: "Шведова Наталья Алексеевна", a: "Педагог-организатор. Каб. 229 (Нежинская, 7). Тел: 8 (901) 430-45-97, доб. 1498. E-mail: n.a.shvedova@mpt.ru" }
-            ]
-        }
-    };
+// Данные для интерактивного меню
+const sectionsData = {
+    schedule: {
+        title: "Расписание",
+        qa: [
+            { q: "Где смотреть расписание?", a: "На официальном сайте МПТ или в приложении MPT Informer." },
+            { q: "Что такое числитель/знаменатель?", a: "Недели чередуются. В числитель — одни пары, в знаменатель — другие. Смотри, какая неделя, чтобы не перепутать." },
+            { q: "Где проходят пары?", a: "1 курс — только Нежинская. 2–4 курс — Нежинская + Нахимовский." },
+            { q: "Что такое аудиторник?", a: "Для обозначения расписания на день существует аудиторник. Он находится на стойке охраны справа." }
+        ]
+    },
+    docs: {
+        title: "Документы",
+        qa: [
+            { q: "Что нужно брать с собой?", a: "1. Пропуск. 2. Студенческий билет. 3. Паспорт (желательно)." },
+            { q: "Что делать, если потерял студенческий/пропуск?", a: "При утере студенческого — заявление в полицию, при порче — объяснительная. Пропуск восстанавливают в РЭУ. До получения нового носи с собой паспорт и студенческий." },
+            { q: "Что такое пропуск?", a: "Это документ, по которому пропускают в здание техникума. Очень легко теряется. Восстанавливается в РЭУ." },
+            { q: "Что делать при утере пропуска?", a: "Оповестить педагога-организатора, съездить в РЭУ для подачи заявления на восстановление (это платно), ждать. До выдачи пропуска носить паспорт и студенческий." }
+        ]
+    },
+    study: {
+        title: "Обучение",
+        qa: [
+            { q: "Что такое сессия?", a: "Сессия — это период сдачи экзаменов в конце семестра. Она проходит в июне и включает 3 экзамена и несколько дифференцированных зачётов." },
+            { q: "Какие экзамены сдают на сессии?", a: "Обязательные экзамены — русский язык и математика. Остальные предметы идут как дифференцированные зачёты." },
+            { q: "Что такое дифференцированный зачёт?", a: "Это форма проверки знаний, где вместо оценки ставят «зачёт» или «незачёт». Результаты влияют на допуск к сессии и перевод на следующий курс." },
+            { q: "Что такое промежуточная аттестация?", a: "Это форма проверки знаний по итогам семестра. Результаты не влияют на перевод на следующий курс, но отправляются родителям." }
+        ]
+    },
+    contacts: {
+        title: "Контакты администрации",
+        qa: [
+            { q: "Ермачкова Ирина Юрьевна", a: "Заведующая отделением. Тел: 8 (495) 800-12-00 (доб. 1456), 8 (926) 900-76-05. E-mail: Ermachkova.IY@rea.ru" },
+            { q: "Кирюхина Мария Николаевна", a: "Педагог-организатор. Каб. 229-230 (Нежинская, 7). Тел: 8 (925) 800-10-97, доб. 1498. E-mail: Kiryuhina.MN@rea.ru" },
+            { q: "Стасевич Константин Владимирович", a: "Педагог-организатор. Каб. 229-230 (Нежинская, 7). Тел: 8 (925) 628-06-40, доб. 2552. E-mail: k.v.stasevich@mpt.ru" },
+            { q: "Михайлова Яна Витальевна", a: "Педагог-организатор. Тел: 8-985-816-23-21, 8-495-800-12-00 доб. 2552. E-mail: ya.v.mihailova@mpt.ru" },
+            { q: "Шведова Наталья Алексеевна", a: "Педагог-организатор. Каб. 229 (Нежинская, 7). Тел: 8 (901) 430-45-97, доб. 1498. E-mail: n.a.shvedova@mpt.ru" }
+        ]
+    }
+};
 
     const menuGrid = document.getElementById('menuGrid');
     const answersSection = document.getElementById('answersSection');
@@ -822,25 +825,46 @@
     const backBtn = document.getElementById('backToMenuBtn');
 
     function showAnswers(sectionId) {
-        const data = sectionsData[sectionId];
-        if (!data) return;
+    const data = sectionsData[sectionId];
+    if (!data) return;
 
-        let qaHtml = `<h3>${data.title}</h3>`;
-        data.qa.forEach(item => {
+    let qaHtml = `<h3>${data.title}</h3>`;
+    
+    data.qa.forEach(item => {
+        qaHtml += `
+            <div class="qa-block">
+                <div class="qa-question">
+                    <i class="fas fa-question-circle"></i> ${item.q}
+                </div>
+                <div class="qa-answer">${item.a}</div>
+            </div>
+        `;
+        
+        // Добавляем схему для вопроса "Что такое числитель/знаменатель?"
+        if (item.q === "Что такое числитель/знаменатель?") {
             qaHtml += `
-                <div class="qa-block">
-                    <div class="qa-question">
-                        <i class="fas fa-question-circle"></i> ${item.q}
+                <div class="qa-block" style="background: #f8fafc; border-radius: 20px; margin-top: 8px;">
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 16px;">
+                        <div style="text-align: center;">
+                            <div style="background: #f97316; color: white; padding: 12px 24px; border-radius: 12px; font-weight: bold;">ЧИСЛИТЕЛЬ</div>
+                            <div style="margin-top: 8px; font-weight: 500;">Химия</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #3b82f6; color: white; padding: 12px 24px; border-radius: 12px; font-weight: bold;">ЗНАМЕНАТЕЛЬ</div>
+                            <div style="margin-top: 8px; font-weight: 500;">Физика</div>
+                        </div>
                     </div>
-                    <div class="qa-answer">${item.a}</div>
+                    <p style="text-align: center; font-size: 0.85rem; color: #475569;">В числитель — одни пары, в знаменатель — другие</p>
                 </div>
             `;
-        });
-        answersContent.innerHTML = qaHtml;
-        
-        menuGrid.style.display = 'none';
-        answersSection.classList.add('active');
-        document.getElementById('interactive').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+    
+    answersContent.innerHTML = qaHtml;
+    
+    menuGrid.style.display = 'none';
+    answersSection.classList.add('active');
+    document.getElementById('interactive').scrollIntoView({ behavior: 'smooth' });
     }
 
     function backToMenu() {
