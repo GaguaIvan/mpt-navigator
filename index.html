@@ -840,25 +840,32 @@ const sectionsData = {
             </div>
         `;
         
-        // Добавляем схему для вопроса "Что такое числитель/знаменатель?"
-        if (item.q === "Что такое числитель/знаменатель?") {
-            qaHtml += `
-                <div class="qa-block" style="background: #f8fafc; border-radius: 20px; margin-top: 8px;">
-                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 16px;">
-                        <div style="text-align: center;">
-                            <div style="background: #f97316; color: white; padding: 12px 24px; border-radius: 12px; font-weight: bold;">ЧИСЛИТЕЛЬ</div>
-                            <div style="margin-top: 8px; font-weight: 500;">Химия</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: #3b82f6; color: white; padding: 12px 24px; border-radius: 12px; font-weight: bold;">ЗНАМЕНАТЕЛЬ</div>
-                            <div style="margin-top: 8px; font-weight: 500;">Физика</div>
-                        </div>
-                    </div>
-                    <p style="text-align: center; font-size: 0.85rem; color: #475569;">В числитель — одни пары, в знаменатель — другие</p>
+// Добавляем схему для вопроса "Что такое числитель/знаменатель?"
+if (item.q === "Что такое числитель/знаменатель?") {
+    qaHtml += `
+        <div class="qa-block" style="background: #f8fafc; border-radius: 20px; margin-top: 8px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px;">
+                <div style="text-align: center;">
+                    <div style="background: #f97316; color: white; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1rem;">ЧИСЛИТЕЛЬ</div>
                 </div>
-            `;
-        }
-    });
+                <div style="font-size: 2rem; font-weight: bold; color: #64748b;">/</div>
+                <div style="text-align: center;">
+                    <div style="background: #3b82f6; color: white; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1rem;">ЗНАМЕНАТЕЛЬ</div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 20px 20px 20px;">
+                <div style="text-align: center;">
+                    <div style="background: #f97316; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500;">Химия</div>
+                </div>
+                <div style="font-size: 1.5rem; font-weight: bold; color: #64748b;">/</div>
+                <div style="text-align: center;">
+                    <div style="background: #3b82f6; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500;">Физика</div>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 0.85rem; color: #475569; padding-bottom: 16px;">В числитель — одни пары, в знаменатель — другие</p>
+        </div>
+    `;
+}
     
     answersContent.innerHTML = qaHtml;
     
