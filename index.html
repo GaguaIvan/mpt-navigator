@@ -843,21 +843,62 @@
     const answersContent = document.getElementById('answersContent');
     const backBtn = document.getElementById('backToMenuBtn');
 
-    function showAnswers(sectionId) {
-        const data = sectionsData[sectionId];
-        if (!data) return;
+function showAnswers(sectionId) {
+    const data = sectionsData[sectionId];
+    if (!data) return;
 
-        let qaHtml = `<h3>${data.title}</h3>`;
+    let qaHtml = `<h3>${data.title}</h3>`;
+    
+    data.qa.forEach(item => {
+        // Выбираем иконку в зависимости от раздела
+        let iconClass = "fas fa-question-circle";
+        if (sectionId === "contacts") {
+            iconClass = "fas fa-user-circle";
+        }
         
-        data.qa.forEach(item => {
+        qaHtml += `
+            <div class="qa-block">
+                <div class="qa-question">
+                    <i class="${iconClass}"></i> ${item.q}
+                </div>
+                <div class="qa-answer">${item.a}</div>
+            </div>
+        `;
+        
+        // Добавляем схему для вопроса "Что такое числитель/знаменатель?"
+        if (item.q === "Что такое числитель/знаменатель?") {
             qaHtml += `
-                <div class="qa-block">
-                    <div class="qa-question">
-                        <i class="fas fa-question-circle"></i> ${item.q}
+                <div class="qa-block" style="background: #f8fafc; border-radius: 20px; margin-top: 8px;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px;">
+                        <div style="text-align: center;">
+                            <div style="background: #f97316; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЧИСЛИТЕЛЬ</div>
+                        </div>
+                        <div style="font-size: 2rem; font-weight: bold; color: #64748b;">/</div>
+                        <div style="text-align: center;">
+                            <div style="background: #3b82f6; color: white; padding: 12px 24px; border-radius: 40px; font-weight: bold;">ЗНАМЕНАТЕЛЬ</div>
+                        </div>
                     </div>
-                    <div class="qa-answer">${item.a}</div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 20px 20px 20px;">
+                        <div style="text-align: center;">
+                            <div style="background: #f97316; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Химия</div>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #64748b;">/</div>
+                        <div style="text-align: center;">
+                            <div style="background: #3b82f6; color: white; padding: 10px 20px; border-radius: 40px; font-weight: 500;">Физика</div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; font-size: 0.85rem; color: #475569; padding-bottom: 16px;">В числитель — одни пары, в знаменатель — другие</p>
                 </div>
             `;
+        }
+    });
+    
+    answersContent.innerHTML = qaHtml;
+    
+    menuGrid.style.display = 'none';
+    answersSection.classList.add('active');
+    document.getElementById('interactive').scrollIntoView({ behavior: 'smooth' });
+}
             
             // Добавляем схему для вопроса "Что такое числитель/знаменатель?"
             if (item.q === "Что такое числитель/знаменатель?") {
