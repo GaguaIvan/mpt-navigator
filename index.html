@@ -932,18 +932,35 @@
         });
     });
 
-    // Кнопка наверх
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollBtn.classList.add('show');
-        } else {
-            scrollBtn.classList.remove('show');
+// Кнопка наверх
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollBtn.classList.add('show');
+    } else {
+        scrollBtn.classList.remove('show');
+    }
+});
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Плавная прокрутка для всех ссылок в меню (верхнее меню и футер)
+document.querySelectorAll('.nav-links a, .footer-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     });
-    scrollBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
+});</script>
 </body>
 </html>
